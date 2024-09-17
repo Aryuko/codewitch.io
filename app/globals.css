@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+    .max-w-dvw {
+        max-width: 100dvw;
+    }
+
+    .neutral {
+        @apply bg-neutral text-neutral-content;
+    }
+
+    .base-200 {
+        @apply bg-base-200 text-base-content;
+    }
+
+    .base-300 {
+        @apply bg-base-300 text-base-content;
+    }
+
+    .text-subtle {
+        @apply text-base-content/80;
+    }
+
+    .text-discreet {
+        @apply text-base-content/60;
+    }
+
+    .text-emphasis {
+        @apply font-medium text-base-content;
+    }
+
+    .clip-circle {
+        clip-path: circle(50% at 50% 50%);
+    }
+
+    .w-page {
+        @apply w-dvw max-w-screen-xl px-8 md:px-10;
+    }
+
+    .max-w-page {
+        @apply max-w-screen-xl px-8 md:px-10;
+    }
+
+    .text-gradient {
+        @apply to-primary-content-gradient-target bg-gradient-to-t from-primary-content bg-clip-text text-transparent;
+    }
+
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+}
+
+@layer components {
+    .pricing-card {
+        @apply card w-[380px] border-2 border-transparent shadow-xl md:w-[450px];
+        max-width: 90dvw;
+
+        svg {
+            @apply w-4 fill-current;
+        }
+        &.highlight {
+            @apply border-primary;
+            &::before {
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                @apply badge badge-primary absolute top-0 rounded-lg;
+            }
+        }
+    }
+    .hero-content {
+        @apply max-w-dvw;
+    }
+
+    .section-title {
+        @apply text-xl font-medium text-primary-content;
+    }
+}
+
+h1 {
+    @apply mt-8 text-4xl font-bold leading-none tracking-tight md:mt-12 md:text-5xl lg:mt-16 lg:text-6xl;
+}
+h2 {
+    @apply text-2xl font-bold leading-none tracking-tight md:text-3xl lg:text-4xl;
+}
+h3 {
+    @apply text-xl font-bold leading-none tracking-tight md:text-2xl;
+}
+
+body:has(.disable-body-scroll) {
+    overflow: hidden;
+}
