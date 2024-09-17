@@ -24,9 +24,12 @@ export default function Home() {
     return (
         // Container
         // TODO: Add something fun, like particles or framer motion interactive animations
+        // To implement::
+        // - https://ui.aceternity.com/components/shooting-stars-and-stars-background (love this concept)
+        // - https://ui.aceternity.com/components/text-hover-effect (this is sick)
         // Examples/ideas:
-        // - https://particles.js.org/samples/presets/index.html
-        // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter
+        // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter (I like how these move with the cursor)
+        // - https://ui.aceternity.com/components/hero-highlight (could do something similar with the stars, super subtle?)
         <>
             <div className="flex h-dvh w-dvw flex-col items-center gap-8 px-8 text-center font-light leading-relaxed">
                 {/* Title */}
