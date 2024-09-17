@@ -8,13 +8,13 @@ const projects = [
         description:
             "The NextJS template with everything you'll need to launch a product or service.",
         url: "https://template.codewitch.io/",
-        badges: ["WIP"],
+        badges: ["Work in progress"],
     },
     {
         name: "HEMA Broadcast",
         description: "An easier way of creating overlays for HEMA events",
         url: "https://hema.codewitch.io/",
-        badges: ["WIP", "Open Source"],
+        badges: ["Open source", "Work in progress"],
     },
 ]
 
@@ -24,6 +24,9 @@ export default function Home() {
     return (
         // Container
         // TODO: Add something fun, like particles or framer motion interactive animations
+        // Examples/ideas:
+        // - https://particles.js.org/samples/presets/index.html
+        // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter
         <>
             <div className="flex h-dvh w-dvw flex-col items-center gap-8 px-8 text-center font-light leading-relaxed">
                 {/* Title */}
@@ -76,13 +79,15 @@ export default function Home() {
                         className="flex flex-col gap-2 transition-all hover:text-base-content"
                         key={name}
                     >
-                        <span className="flex gap-2">
+                        <span className="flex items-center justify-between">
                             <h3>{name}</h3>
-                            {badges.map((badge) => (
-                                <div key={badge} className="badge">
-                                    {badge}
-                                </div>
-                            ))}
+                            <span className="flex gap-2">
+                                {badges.map((badge) => (
+                                    <div key={badge} className="badge">
+                                        {badge}
+                                    </div>
+                                ))}
+                            </span>
                         </span>
                         <p>{description}</p>
                     </Link>
