@@ -47,7 +47,7 @@
     }
 
     .text-gradient {
-        @apply to-primary-content-gradient-target bg-gradient-to-t from-primary-content bg-clip-text text-transparent;
+        @apply bg-gradient-to-t from-primary-content to-primary-content-gradient-target bg-clip-text text-transparent;
     }
 
     .flex-center {
@@ -56,29 +56,6 @@
 }
 
 @layer components {
-    .pricing-card {
-        @apply card w-[380px] border-2 border-transparent shadow-xl md:w-[450px];
-        max-width: 90dvw;
-
-        svg {
-            @apply w-4 fill-current;
-        }
-        &.highlight {
-            @apply border-primary;
-            &::before {
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-                @apply badge badge-primary absolute top-0 rounded-lg;
-            }
-        }
-    }
-    .hero-content {
-        @apply max-w-dvw;
-    }
-
-    .section-title {
-        @apply text-xl font-medium text-primary-content;
-    }
 }
 
 h1 {

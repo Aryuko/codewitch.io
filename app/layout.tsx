@@ -6,7 +6,7 @@ import "./globals.css"
 import Script from "next/script"
 
 const poppins = Poppins({
-    weight: ["400", "500", "600", "800"],
+    weight: ["100", "200", "400", "500", "600", "800"],
     subsets: ["latin"],
 })
 
