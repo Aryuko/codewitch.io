@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-    title: "codewitch",
+    title: "codewitch.io",
     description:
         "Exploring my curiosity and sharing what I learn along the way.",
 }
