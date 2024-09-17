@@ -31,7 +31,7 @@ export default function Home() {
         // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter (I like how these move with the cursor)
         // - https://ui.aceternity.com/components/hero-highlight (could do something similar with the stars, super subtle?)
         <>
-            <div className="flex h-dvh w-dvw flex-col items-center gap-8 px-8 text-center font-light leading-relaxed">
+            <div className="flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
                 {/* Title */}
                 <h1 className="animate-title mt-[35dvh] text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
                     codewitch
@@ -84,7 +84,7 @@ export default function Home() {
                     >
                         <span className="flex items-center justify-between">
                             <h3>{name}</h3>
-                            <span className="flex gap-2">
+                            <span className="flex flex-grow basis-0 flex-wrap justify-end gap-2">
                                 {badges.map((badge) => (
                                     <div key={badge} className="badge">
                                         {badge}
