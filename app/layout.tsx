@@ -6,13 +6,14 @@ import "./globals.css"
 import Script from "next/script"
 
 const poppins = Poppins({
-    weight: ["100", "200", "400", "500", "600", "800"],
+    weight: ["200", "400", "500", "600", "800"],
     subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
-    title: "Project Template",
-    description: "A template for building projects with Next.js",
+    title: "codewitch",
+    description:
+        "Exploring my curiosity and sharing what I learn along the way.",
 }
 
 export default function RootLayout({
