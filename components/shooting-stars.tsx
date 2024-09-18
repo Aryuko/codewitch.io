@@ -1,4 +1,5 @@
 "use client"
+import { useInterval } from "@/lib/useInterval"
 import React, { useEffect, useState, useRef } from "react"
 import { twMerge } from "tailwind-merge"
 
@@ -27,27 +28,25 @@ interface ShootingStarsProps {
 }
 
 const getRandomStartPoint = () => {
-    const side = Math.floor(Math.random() * 4)
+    const side = Math.floor(Math.random() * 2)
     const offset = Math.random() * window.innerWidth
+
+    // TODO: Vary angle between ~30 and ~45 degrees
 
     switch (side) {
         case 0:
             return { x: offset, y: 0, angle: 45 }
         case 1:
             return { x: window.innerWidth, y: offset, angle: 135 }
-        case 2:
-            return { x: offset, y: window.innerHeight, angle: 225 }
-        case 3:
-            return { x: 0, y: offset, angle: 315 }
         default:
             return { x: 0, y: 0, angle: 45 }
     }
 }
 export const ShootingStars: React.FC<ShootingStarsProps> = ({
     minSpeed = 10,
-    maxSpeed = 30,
-    minDelay = 1200,
-    maxDelay = 4200,
+    maxSpeed = 20,
+    minDelay = 4000,
+    maxDelay = 6000,
     starColor = "#9E00FF",
     trailColor = "#2EB9DF",
     starWidth = 10,
@@ -57,8 +56,10 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
     const [star, setStar] = useState<ShootingStar | null>(null)
     const svgRef = useRef<SVGSVGElement>(null)
 
-    useEffect(() => {
-        const createStar = () => {
+    useInterval(() => {
+        // Interval runs on minDelay, add random delay up to maxDelay before ccreating a new star
+        const randomDelay = Math.random() * (maxDelay - minDelay)
+        setTimeout(() => {
             const { x, y, angle } = getRandomStartPoint()
             const newStar: ShootingStar = {
                 id: Date.now(),
@@ -70,15 +71,8 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
                 distance: 0,
             }
             setStar(newStar)
-
-            const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay
-            setTimeout(createStar, randomDelay)
-        }
-
-        createStar()
-
-        return () => {}
-    }, [minSpeed, maxSpeed, minDelay, maxDelay])
+        }, randomDelay)
+    }, minDelay)
 
     useEffect(() => {
         const moveStar = () => {
