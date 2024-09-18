@@ -1,4 +1,6 @@
 "use client"
+import { ShootingStars } from "@/components/shooting-stars"
+import { StarsBackground } from "@/components/stars-background"
 import Link from "next/link"
 import React, { useRef } from "react"
 
@@ -31,9 +33,13 @@ export default function Home() {
         // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter (I like how these move with the cursor)
         // - https://ui.aceternity.com/components/hero-highlight (could do something similar with the stars, super subtle?)
         <>
+            {/* TODO: Make these full document height, not just page height */}
+            {/* Could also add parallax but that's not how stars work */}
+            <ShootingStars />
+            <StarsBackground />
             <div className="flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
                 {/* Title */}
-                <h1 className="animate-title mt-[35dvh] text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
+                <h1 className="mt-[35dvh] animate-title text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
                     codewitch
                 </h1>
                 {/* Description */}
@@ -45,7 +51,7 @@ export default function Home() {
                     <p>Engineer, entrepreneur, cat mother.</p>
                 </div>
                 {/* Links and socials */}
-                <div className="*:text-discreet animate-fade-in flex gap-6 text-4xl *:transition-all hover:*:text-base-content md:text-4xl">
+                <div className="*:text-discreet flex animate-fade-in gap-6 text-4xl *:transition-all hover:*:text-base-content md:text-4xl">
                     <Link target="_blank" href="https://github.com/aryuko">
                         <i className="fa-brands fa-github" />
                     </Link>
@@ -58,7 +64,7 @@ export default function Home() {
                 </div>
                 {/* Projects title/scroll indicator */}
                 <div
-                    className="animate-fade-in text-subtle absolute bottom-4 cursor-pointer hover:text-base-content"
+                    className="text-subtle absolute bottom-4 animate-fade-in cursor-pointer hover:text-base-content"
                     onClick={() =>
                         projectsRef.current?.scrollIntoView({
                             block: "start",
@@ -73,7 +79,7 @@ export default function Home() {
             </div>
             {/* Projects list */}
             <div
-                className="animate-fade-in text-subtle my-24 flex flex-col gap-12 px-8 font-light"
+                className="text-subtle my-24 flex animate-fade-in flex-col gap-12 px-8 font-light"
                 ref={projectsRef}
             >
                 {projects.map(({ name, description, url, badges }) => (
