@@ -31,8 +31,8 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     starDensity = 0.00015,
     allStarsTwinkle = true,
     twinkleProbability = 0.7,
-    minTwinkleSpeed = 0.5,
-    maxTwinkleSpeed = 1,
+    minTwinkleSpeed = 0.75,
+    maxTwinkleSpeed = 1.25,
     className,
 }) => {
     const [stars, setStars] = useState<StarProps[]>([])
@@ -49,7 +49,10 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
                 return {
                     x: Math.random() * width,
                     y: Math.random() * height,
-                    radius: Math.random() * 0.05 + 0.5,
+                    radius:
+                        Math.random() * 0.05 + window.innerWidth > 768
+                            ? 0.6 // Bigger stars on desktop
+                            : 0.4, // Smaller stars on mobile
                     opacity: Math.random() * 0.5 + 0.5,
                     twinkleSpeed: shouldTwinkle
                         ? minTwinkleSpeed +
