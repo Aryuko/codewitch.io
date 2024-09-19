@@ -28,17 +28,40 @@ interface ShootingStarsProps {
 }
 
 const getRandomStartPoint = () => {
-    const side = Math.floor(Math.random() * 2)
-    const offset = Math.random() * document.body.clientWidth
+    const side = Math.floor(Math.random() * 4)
+    const offsetX = Math.random() * document.body.clientWidth
+    const offsetY = (Math.random() * window.innerHeight) / 2 // Always start in the upper half of the screen, regardless of scroll
 
-    // TODO: Vary angle between ~30 and ~45 degrees
+    const minAngle = 30
+    const maxAngle = 60
+    const angle = Math.random() * (maxAngle - minAngle) + minAngle
     switch (side) {
         case 0:
-            return { x: offset, y: 0, angle: 45 }
+            // Top side of screen going right
+            return { x: offsetX, y: 0, angle }
         case 1:
-            return { x: document.body.clientWidth, y: offset, angle: 135 }
+            // Top side of screen going left
+            return {
+                x: offsetX,
+                y: 0,
+                angle: angle + 90,
+            }
+        case 2:
+            // Left side of screen going right
+            return {
+                x: 0,
+                y: offsetY,
+                angle: angle,
+            }
+        case 3:
+            // Right side of screen going left
+            return {
+                x: document.body.clientWidth,
+                y: offsetY,
+                angle: angle + 90,
+            }
         default:
-            return { x: 0, y: 0, angle: 45 }
+            return { x: 0, y: 0, angle: angle }
     }
 }
 export const ShootingStars: React.FC<ShootingStarsProps> = ({
@@ -89,10 +112,10 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
                     const newDistance = prevStar.distance + prevStar.speed
                     const newScale = 1 + newDistance / 100
                     if (
-                        newX < -20 ||
-                        newX > document.body.clientWidth + 20 ||
-                        newY < -20 ||
-                        newY > document.body.clientHeight + 20
+                        newX < -50 ||
+                        newX > document.body.clientWidth + 50 ||
+                        newY < -50 ||
+                        newY > document.body.clientHeight + 50
                     ) {
                         return null
                     }
