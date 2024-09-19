@@ -34,9 +34,9 @@ export default function Home() {
         <>
             <ShootingStars />
             <StarsBackground />
-            <div className="relative flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
+            <div className="relative flex h-screen w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
                 {/* Title */}
-                <h1 className="mt-[35dvh] animate-title text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
+                <h1 className="mt-[35vh] animate-title text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
                     codewitch
                 </h1>
                 {/* Description */}
@@ -59,9 +59,12 @@ export default function Home() {
                         <i className="fa-solid fa-envelope" />
                     </Link>
                 </div>
-                {/* Projects title/scroll indicator */}
+            </div>
+            {/* Container for placing the projects title/scroll indicator */}
+            {/* We can't use dvh for the main container without causing the canvas to redraw when you scroll on mobile, so this has to be a separate element */}
+            <div className="absolute top-0 flex h-dvh w-dvw animate-fade-in flex-col items-center justify-end">
                 <div
-                    className="text-subtle absolute bottom-4 animate-fade-in cursor-pointer hover:text-base-content"
+                    className="text-subtle flex-center mb-4 cursor-pointer flex-col font-light hover:text-base-content"
                     onClick={() =>
                         projectsRef.current?.scrollIntoView({
                             block: "start",
