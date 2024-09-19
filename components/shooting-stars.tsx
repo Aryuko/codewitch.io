@@ -38,26 +38,26 @@ const getRandomStartPoint = () => {
     switch (side) {
         case 0:
             // Top side of screen going right
-            return { x: offsetX, y: 0, angle }
+            return { x: offsetX, y: window.scrollY, angle }
         case 1:
             // Top side of screen going left
             return {
                 x: offsetX,
-                y: 0,
+                y: window.scrollY,
                 angle: angle + 90,
             }
         case 2:
             // Left side of screen going right
             return {
                 x: 0,
-                y: offsetY,
+                y: window.scrollY + offsetY,
                 angle: angle,
             }
         case 3:
             // Right side of screen going left
             return {
                 x: document.body.clientWidth,
-                y: offsetY,
+                y: window.scrollY + offsetY,
                 angle: angle + 90,
             }
         default:
