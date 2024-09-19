@@ -26,7 +26,7 @@ export default function RootLayout({
             <Script src="https://kit.fontawesome.com/264ffc9fb7.js" />
             <body className={`${poppins.className}`}>
                 {/* Content */}
-                <main className="flex w-full flex-grow flex-col items-center">
+                <main className="relative flex w-full flex-grow flex-col items-center">
                     {children}
                 </main>
             </body>

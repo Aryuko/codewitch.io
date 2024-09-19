@@ -33,8 +33,6 @@ export default function Home() {
         // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter (I like how these move with the cursor)
         // - https://ui.aceternity.com/components/hero-highlight (could do something similar with the stars, super subtle?)
         <>
-            {/* TODO: Make these full document height, not just page height */}
-            {/* Could also add parallax but that's not how stars work */}
             <ShootingStars />
             <StarsBackground />
             <div className="flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
