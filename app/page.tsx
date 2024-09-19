@@ -27,7 +27,6 @@ export default function Home() {
         // Container
         // TODO: Add something fun, like particles or framer motion interactive animations
         // To implement::
-        // - https://ui.aceternity.com/components/shooting-stars-and-stars-background (love this concept)
         // - https://ui.aceternity.com/components/text-hover-effect (this is sick)
         // Examples/ideas:
         // - https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter (I like how these move with the cursor)
@@ -35,7 +34,7 @@ export default function Home() {
         <>
             <ShootingStars />
             <StarsBackground />
-            <div className="flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
+            <div className="relative flex h-dvh w-dvw flex-col items-center gap-8 overflow-hidden px-8 text-center font-light leading-relaxed">
                 {/* Title */}
                 <h1 className="mt-[35dvh] animate-title text-6xl font-light tracking-normal md:text-8xl lg:text-9xl">
                     codewitch
