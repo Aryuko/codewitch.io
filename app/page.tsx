@@ -48,7 +48,7 @@ export default function Home() {
                     <p>Engineer, entrepreneur, cat mother.</p>
                 </div>
                 {/* Links and socials */}
-                <div className="*:text-discreet flex animate-fade-in gap-6 text-4xl *:transition-all hover:*:text-base-content md:text-4xl">
+                <div className="*:text-discreet flex animate-fade-in gap-6 text-3xl *:transition-all hover:*:text-base-content md:text-4xl">
                     <Link target="_blank" href="https://github.com/aryuko">
                         <i className="fa-brands fa-github" />
                     </Link>
