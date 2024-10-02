@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             {/* Container for placing the projects title/scroll indicator */}
             {/* We can't use dvh for the main container without causing the canvas to redraw when you scroll on mobile, so this has to be a separate element */}
-            <div className="absolute top-0 flex h-dvh w-dvw animate-fade-in flex-col items-center justify-end">
+            <div className="pointer-events-none absolute top-0 flex h-dvh w-dvw animate-fade-in flex-col items-center justify-end *:pointer-events-auto">
                 <div
                     className="text-subtle flex-center mb-4 cursor-pointer flex-col font-light hover:text-base-content"
                     onClick={() =>
